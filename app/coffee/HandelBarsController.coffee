@@ -5,12 +5,18 @@ class HandelBarsController
   class HandelBarsHandler
     constructor: () ->
 
-    compileAppend:(template,idDestination, context) ->
-      console.log $(template)
+    compile:(template,idDestination, context) ->
       source = $(template).html()
       template = Handlebars.compile(source)
       html    = template(context)
+
+
+    compileAppend:(template,idDestination, context) ->
+      html = @compile(template,idDestination, context)
       $(idDestination).append(html)
+    compilePrepend:(template,idDestination, context) ->
+      html = @compile(template,idDestination, context)
+      $(idDestination).prepend(html)
 
 
   @getInstance: () ->
