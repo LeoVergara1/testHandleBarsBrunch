@@ -1,19 +1,17 @@
 class IndexController
   Handlebars = require('handlebars')
-  source   = $("#entry-template").html()
-  template = Handlebars.compile(source)
+  Handlebars1 = require('coffee/HandelBarsController.coffee')
+  template = "#entry-template"
+  source   = "#insert"
   context = {title: "Tarjeta Nueva", body: "This is my first post!"}
-  html    = template(context)
 
   constructor: ->
 
 
   insert: ->
-    console.log "Funcion Button"
-    console.log $("#insert1")
     $("#insert1").on("click", ->
+      Handlebars1.getInstance().compileAppend(template,source, context)
       console.log "Presiona"
-      $("#insert").append(html)
     )
 
 
@@ -21,7 +19,6 @@ class IndexController
   start: ->
     @insert()
     console.log "Hola"
-    console.log html
 
 
 new IndexController().start()
