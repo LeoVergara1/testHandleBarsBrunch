@@ -22,6 +22,7 @@
   </div>
   </div>
   <script id="entry-template" type="text/x-handlebars-template">
+    {{# if number}}
     <div class="entry">
       <h1>{{title}} Numero: {{number}}</h1>
       <div class="body">
@@ -35,5 +36,6 @@
         </div>
       </div>
     </div>
+    {{/if}}
   </script>
 </body>

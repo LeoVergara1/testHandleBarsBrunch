@@ -1,9 +1,10 @@
 class IndexController
-  Handlebars = require('handlebars')
-  Handlebars1 = require('coffee/HandelBarsController.coffee')
+  Handlebars = require('coffee/HandelBarsController.coffee')
+  App = require('coffee/MainApp.coffee')
   template = "#entry-template"
   source   = "#insert"
   context = {title: "Tarjeta Nueva", body: "This is my first post!", number: 0}
+  App.getInstance()
 
   constructor: ->
 
@@ -12,13 +13,13 @@ class IndexController
     $("#insert1").on("click", ->
       context.number++
       console.log context.number
-      Handlebars1.getInstance().compileAppend(template,source, context)
+      Handlebars.getInstance().compileAppend(template,source, context)
       console.log "Presiona"
     )
     $("#insert2").on("click", ->
       context.number++
       console.log context.number
-      Handlebars1.getInstance().compilePrepend(template,source, context)
+      Handlebars.getInstance().compilePrepend(template,source, context)
       console.log "Presiona"
     )
     $("#insert").on("click",".delete",(event) ->
@@ -30,7 +31,6 @@ class IndexController
 
   start: ->
     @insert()
-    console.log "Hola"
 
 
 new IndexController().start()

@@ -2,7 +2,7 @@ class HandelBarsController
   instance = null
   Handlebars = require('handlebars')
 
-  class HandelBarsHandler
+  class HandlebarsHandler
     constructor: () ->
 
     compile:(template,idDestination, context) ->
@@ -10,6 +10,10 @@ class HandelBarsController
       template = Handlebars.compile(source)
       html    = template(context)
 
+
+    name:(context) -> ## Soló para representar la forma en que se puede registrar una funcion a Handlebars
+      Handlebars.registerHelper "Name", ->
+        return context.body +" "+context.number
 
     compileAppend:(template,idDestination, context) ->
       html = @compile(template,idDestination, context)
@@ -20,7 +24,7 @@ class HandelBarsController
 
 
   @getInstance: () ->
-      instance ?= new HandelBarsHandler()
+      instance ?= new HandlebarsHandler()
 
 
 
