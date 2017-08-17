@@ -5,6 +5,9 @@
   <title>{{title}}</title>
   <link rel="stylesheet" href="/app.css">
   <script src="/app.js"></script>
+  <script
+    src="https://rawgit.com/flatiron/director/master/build/director.min.js">
+  </script>
   <script>require('initialize');</script>
 </head>
 <body>
@@ -12,17 +15,21 @@
     <a href="http://brunch.io"><img src="http://brunch.io/images/logo.png" alt="Brunch"></a>
     <p>Bon Appétit.Hola</p>
   </div>
-  <div class="col-lg-12"id="insert">
+  <div class="col-lg-12" id="insert">
 
   </div>
   <div class="row">
     <div class="col-lg-6 offset-lg-6">
     <button type="button" id="insert1" class="btn btn-primary">Insertar Abajo</button>
     <button type="button" id="insert2" class="btn btn-primary">Insertar Arriba</button>
+    <ul>
+      <li><a href="#/author">#/author</a></li>
+      <li><a href="#/books">#/books</a></li>
+      <li><a href="#/books/view/1">#/books/view/1</a></li>
+    </ul>
   </div>
   </div>
   <script id="entry-template" type="text/x-handlebars-template">
-    {{# if number}}
     <div class="entry">
       <h1>{{title}} Numero: {{number}}</h1>
       <div class="body">
@@ -36,6 +43,5 @@
         </div>
       </div>
     </div>
-    {{/if}}
   </script>
 </body>
