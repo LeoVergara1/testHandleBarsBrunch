@@ -1,9 +1,7 @@
 class App
   instance = null
-  Handlebars = require('coffee/HandelBarsController.coffee')
-  template = "#entry-template"
-  source   = "#insert"
-  context = {title: "Tarjeta Nueva", body: "This is my first post!", number: 0}
+  CardController = require('coffee/CardController.coffee')
+  cardController = new CardController()
 
   class AppHandler
     constructor: () ->
@@ -11,10 +9,10 @@ class App
       author = ->
         console.log 'author'
         $("#insert").html("<h1>Hola mundo</h1>")
+        cardController.show()
 
       books = ->
         console.log 'books'
-        Handlebars.getInstance().compileAppend(template,source, context)
 
       viewBook = (bookId) ->
         console.log 'viewBook: bookId is populated: ' + bookId
